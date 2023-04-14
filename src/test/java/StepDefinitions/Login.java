@@ -9,6 +9,8 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import static StepDefinitions.PageInitializer.loginPage;
+
 public class Login extends CommonMethods {
 
 
@@ -16,7 +18,6 @@ public class Login extends CommonMethods {
     @When("user enters a valid email and password")
     public void user_enters_a_valid_email_and_password() {
 
-        LoginPage loginPage=new LoginPage();
 
         sendText(loginPage.username,ConfigReader.getValueOfProperty("username"));
         sendText(loginPage.password,ConfigReader.getValueOfProperty("password"));
