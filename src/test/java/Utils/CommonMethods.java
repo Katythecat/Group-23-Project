@@ -6,8 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
 
 import java.time.Duration;
+import java.util.List;
 
 public class CommonMethods extends PageInitializer {
     public static WebDriver driver;
@@ -33,7 +35,7 @@ public class CommonMethods extends PageInitializer {
         initializePageObjects();
     }
 
-    public static void closeBrowser(){
+    public static void closeBrowser() {
         driver.close();
     }
 
@@ -47,5 +49,20 @@ public class CommonMethods extends PageInitializer {
         element.sendKeys(text);
     }
 
+    public static Select clickOnDropdown(WebElement element) {
+        Select select = new Select(element);
+        return select;
+    }
 
+    public static void selectByOptions(WebElement element, String text) {
+        List<WebElement> options = clickOnDropdown(element).getOptions();
+        for (WebElement option : options) {
+            String ddlOptionText = option.getText();
+            if (ddlOptionText.equals(text)) {
+                option.click();
+            }
+        }
+
+
+    }
 }
