@@ -10,6 +10,7 @@ public class AddLastNameStepDef extends CommonMethods {
     AddLastNamePage addLastNamePage = new AddLastNamePage();
     @When("user clicks on PIM option")
     public void user_clicks_on_pim_option() {
+
         doClick(addLastNamePage.pimMenu);
     }
     @When("user clicks on add lastname button")
@@ -22,6 +23,7 @@ public class AddLastNameStepDef extends CommonMethods {
     }
     @And("user clicks on add Employee option")
     public void clickOnAddEmployeeOption(){
+
         doClick(addLastNamePage.addEmpMenu);
     }
     @And("user enters firstname")
